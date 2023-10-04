@@ -1,139 +1,41 @@
+import Image from "next/image"
+import Link from "next/link"
+
 export default function NewPost(){
-    let title = '부고만들기'
+    let title = ['부고장 국화','부고장 리본','부고장 기본','부고장 근조','부고장 명복','부고장 하늘','부고장 십자가','부고장 리본띠','부고장 국화꽃']
+    let title2=['부고장 국화','부고장 리본','부고장 기본']
+
     return(
       <main>
-        <div className="flex-col">
-          <h4 className="text-4xl text-center mt-36 font-medium">{title}</h4>
-  
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">신청자정보</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">신청자이름</label>
-                  <input className="border" id="name" type="text" placeholder="신청자명을 입력해 주세요."/>
+        <div className="lg:grid lg:grid-cols-3 lg:w-8/12 w-11/12 justify-between gap-4 my-8 m-auto">
+        {
+            title.map((e,i)=>{
+              return(
+                <div className="px-8 py-4 border rounded-2xl text-center my-4 shadow-md" key={i}>
+                  <img src={`/sample${i}.jpg`} alt="샘플" className="m-auto"/>
+                  <div className="flex justify-around items-center my-5">
+                    <h3 className="text-base">{title[i]}</h3>
+                    <Link href={`/sample/${i}`}><p className=" bg-gray-200 py-2 px-4 rounded-lg hover:bg-gray-300">샘플보기</p></Link>
+                  </div>
+                  <div className="bg-gray-200 py-2 rounded-xl hover:bg-gray-300 hover:-translate-y-1 ease-in duration-100">부고 만들기</div>
                 </div>
-                <div>
-                  <label htmlFor="num">핸드폰번호</label>
-                  <input className="border" id="num" type="text" placeholder="숫자 4자리를 입력해 주세요."/>
+              )
+            })
+          }
+          {/* {
+            title.map((e,i)=>{
+              return(
+                <div className="bg-blue-200" key={i}>
+                  <div><img src={`/sample${i}.jpg`} alt="샘플" /></div>
+                  <div className="flex justify-between">
+                    <p className="w-3/4 bg-gray-200">{title[i]}</p>
+                    <Link href={`/sample/${i}`}><p className="w-1/4 bg-gray-300">샘플보기</p></Link>
+                  </div>
+                  <div>부고 만들기</div>
                 </div>
-              </form>
-            </div>  
-          </div>
-  
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">부고정보</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">고인명</label>
-                  <input className="border" id="name" type="text" placeholder="고인명을 입력해 주세요(예:홍길동)"/>
-                </div>
-                <div>
-                  <label htmlFor="num">연세</label>
-                  <input className="border" id="num" type="text" placeholder="고인의 연세를 입력해 주세요(예:85)"/>
-                </div>
-                <div>
-                  <label htmlFor="num">상주</label>
-                  <textarea className="border" id="num" type="text" placeholder="상주이름을 입력해 주세요(예: 아들 홍영길)"/>
-                </div>
-              </form>
-            </div>   
-          </div>
-  
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">장례식장 정보</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">장례식장명</label>
-                  <input className="border" id="name" type="text" placeholder="장례식장명을 입력해 주세요"/>
-                </div>
-                <div>
-                  <label htmlFor="num">빈소</label>
-                  <input className="border" id="num" type="text" placeholder="빈소이름을 입력해 주세요"/>
-                </div>
-                <div>
-                  <label htmlFor="num">주소</label>
-                  <input className="border" id="num" type="text" placeholder="장례식장 주소를 입력해 주세요"/>
-                </div>
-              </form>
-            </div> 
-          </div>
-
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">장지 정보</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">신청자이름</label>
-                  <input className="border" id="name" type="text" placeholder="신청자명을 입력해 주세요."/>
-                </div>
-              </form>
-            </div>  
-          </div>
-
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">임종 일시</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">신청자이름</label>
-                  <input className="border" id="name" type="text" placeholder="신청자명을 입력해 주세요."/>
-                </div>
-              </form>
-            </div>  
-          </div>
-
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">발인 일시</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">신청자이름</label>
-                  <input className="border" id="name" type="text" placeholder="신청자명을 입력해 주세요."/>
-                </div>
-              </form>
-            </div>  
-          </div>
-
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">안내하는 글</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">신청자이름</label>
-                  <input className="border" id="name" type="text" placeholder="신청자명을 입력해 주세요."/>
-                </div>
-              </form>
-            </div>  
-          </div>
-
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">마음전하는 곳</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">신청자이름</label>
-                  <input className="border" id="name" type="text" placeholder="신청자명을 입력해 주세요."/>
-                </div>
-              </form>
-            </div>  
-          </div>
-
-          <div className="text-center mt-20">
-            <h2 className="text-2xl">서비스이용약관 동의</h2>
-            <div>
-              <form action="" className="flex-col space-y-3">
-                <div>
-                  <label htmlFor="name">개인정보 수집/이용 동의</label>
-                  <input className="border" id="name" type="checkbox" placeholder="신청자명을 입력해 주세요."/>
-                </div>
-              </form>
-            </div>  
-          </div>
-
-          <button className="bg-sky-500 hover:bg-sky-700 mt-20 rounded-lg p-8">신청하기</button>
+              )
+            })
+          } */}
         </div>
       </main>
     )

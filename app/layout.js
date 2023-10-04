@@ -28,7 +28,8 @@ export default function RootLayout({ children }) {
             <li><Link href='/faq'>자주묻는질문</Link></li>
             </ul>
         </nav>
-        {children}</body>
+        {children}
+      </body>
     </html>
   )
 }
